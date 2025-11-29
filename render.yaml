@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: aluminium-backend
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: node --max-old-space-size=1024 dist/main
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_OPTIONS
+        value: --max-old-space-size=1024
