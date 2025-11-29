@@ -16,11 +16,11 @@ import { AccountsModule } from './features/Accounts/accounts.module';
     SalesModule,
     ExpenseModule,
     AccountsModule,
-    MongooseModule.forRoot('mongodb+srv://azibaliansari311_db_user:My10dollers$@cluster0.nktmmeq.mongodb.net/Aluminum?retryWrites=true&w=majority'),],
+    MongooseModule.forRoot(process.env.MONGO_URI || ''),
+  ],
 
   providers: [],
   controllers: [],
 })
-export class AppModule { }
+export class AppModule {}
 // test
-
