@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable prettier/prettier */
+import 'dotenv/config';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
@@ -26,7 +27,10 @@ async function bootstrap() {
   );
 
   app.enableCors({
-    origin: true,
+    origin:
+      process.env.NODE_ENV === 'production'
+        ? ['https://demo-front-drab.vercel.app', 'http://localhost:3000']
+        : true,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   });
